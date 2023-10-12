@@ -1,0 +1,39 @@
+#Python has built-in support for putting your program to sleep. 
+#The time module has a function sleep() that you can use to suspend 
+#execution of the calling thread for however many seconds you specify.
+import time 
+
+print ("Welcome to Mad Libs!\n") #the '\n' skips a line after the print
+
+#capture the input for the mad libs
+Adjective_1 = input("Enter an adjective: ")
+Place_1 = input("Enter a place: ")
+Adjective_2 = input("Enter an adjective: ")
+Adjective_3 = input("Enter an adjective: ")
+Clothing_1 = input("Enter a piece of clothing: ")
+Body_1 = input("Enter a body part: ")
+Body_2 = input("Enter a body part: ")
+Body_3 = input("Enter a body part: ")
+Adjective_4 = input("Enter an adjective: ")
+Noun_1 = input("Enter a noun: ")
+Noun_2 = input("Enter a noun: ")
+Place_2 = input("Enter a place: ")
+Adjective_5 = input("Enter an adjective: ")
+
+print() #another way to skip a line
+print("Maddening the libs...")
+time.sleep(2) #Calls the previously imported time function
+print("Prioritizing silliness...")
+time.sleep(2)
+print("Preparing shennanigans...")
+time.sleep(2)
+
+print()
+print("Every year, you should go visit the doctor. It is a very",Adjective_1,
+  "visit. Usually, you have to skip going to",Place_1,
+  "to go. Your doctor is usually a/an",Adjective_2,
+  "man or woman who is wearing a/an",Adjective_3,Clothing_1,
+  "They will look at your",Body_1,",",Body_2,", and", Body_3,".",
+  "Sometimes, they can be very",Adjective_4,". Afterwards, they will give you a",
+  Noun_1,"and a",Noun_2,"and your mom or dad will take you to",Place_2,
+  "as a treat. All in all, the doctor's office isn't so",Adjective_5,"!")
