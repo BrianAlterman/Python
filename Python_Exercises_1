@@ -30,3 +30,28 @@ print() #another way to skip a line
 print("The acreage of the field is",acreage,"acres.")
 print() 
 print("But are those acres green...")
+
+#Exercise 4
+
+#want to use the decimal object and the quantize function to return a float value with two decimal places.
+
+from decimal import Decimal
+
+print("Exercise 4\n") #the '\n' skips a line after the print
+print("Today we will be calulating your refund for returning your bottles for the deposit")
+
+small_bottles = float(input("Please enter the amount of small bottles returned (one liter or less): ")) #small deposit rate is $0.10
+large_bottles = float(input("Please enter the amount of large bottles returned (ogreater than one liter) ")) #large deposit rate is $0.25
+
+total_bottles = small_bottles + large_bottles
+small_deposit = small_bottles * .1
+large_deposit = large_bottles * .25
+total_deposit = small_deposit + large_deposit
+
+print() #another way to skip a line
+print("You have returned a total of",(Decimal(total_bottles).quantize(Decimal('1'))),"bottles.")
+print("You earned $",(Decimal(small_deposit).quantize(Decimal('1.00'))),"for the small bottles and $",
+      (Decimal(large_deposit).quantize(Decimal('1.00'))),
+      "for the large ones. Your total deposit earned was $",(Decimal(total_deposit).quantize(Decimal('1.00'))))
+print()
+print("Good work recycling, you are help making the world a better place...")
