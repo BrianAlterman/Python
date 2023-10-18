@@ -1,0 +1,32 @@
+#Exercise 1 - 
+print ("Exercise 1\n") #the '\n' skips a line after the print
+
+Name = input("Enter your name: ")
+
+print ("Hello",Name)
+
+#Exercise 2 - 
+print("Exercise 2\n") #the '\n' skips a line after the print
+print("Today we will be calulating the area of a room in square feet")
+
+length = float(input("Please enter the length in feet: "))
+width = float(input("Please enter the width in feet: "))
+
+area = length * width
+
+print() #another way to skip a line
+print("The area of the room is",area,"square feet")
+
+#Exercise 3 
+print("Exercise 3\n") #the '\n' skips a line after the print
+print("Today we will be calulating the area of a field in acres")
+
+length = float(input("Please enter the length of the field in feet: "))
+width = float(input("Please enter the width of the field in feet: "))
+
+acreage = (length * width)/43560
+
+print() #another way to skip a line
+print("The acreage of the field is",acreage,"acres.")
+print() 
+print("But are those acres green...")
