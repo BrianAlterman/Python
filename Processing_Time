@@ -13,6 +13,8 @@ print("Proof of concept, processing time\n")
 
 start_time = datetime.datetime.now()
 
+#This is where you place what you want timed - between capture of start_time
+#and end_time
 time.sleep(10)
 
 end_time = datetime.datetime.now()
