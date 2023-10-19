@@ -1,0 +1,24 @@
+#Python has built-in support for putting your program to sleep. 
+#The time module has a function sleep() that you can use to suspend 
+#execution of the calling thread for however many seconds you specify.
+
+import time 
+
+#Python has a module called datetime, this function returns the current 
+#local date and time.
+
+import datetime
+
+print("Proof of concept, processing time\n")
+
+start_time = datetime.datetime.now()
+
+time.sleep(10)
+
+end_time = datetime.datetime.now()
+
+process_time = end_time - start_time
+
+print("Started at",start_time)
+print("Ended at",end_time)
+print("Total processing time:",process_time)
