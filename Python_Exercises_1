@@ -55,3 +55,15 @@ print("You earned $",(Decimal(small_deposit).quantize(Decimal('1.00'))),"for the
       "for the large ones. Your total deposit earned was $",(Decimal(total_deposit).quantize(Decimal('1.00'))))
 print()
 print("Good work recycling, you are help making the world a better place...")
+
+#Exercise 5 
+print("Exercise 4\n") #the '\n' skips a line after the print
+print("Today we will be determining if a nuber is odd or even\n")
+
+numcheck = int(input("Enter a number to check whether it is odd or even:"))
+print() #another way to skip a line
+
+if (numcheck % 2) == 0: #The % is determining the remainder of the division and then the == is making sure there is none
+ print(numcheck,"is an even number")
+else:
+ print(numcheck,"is an odd number")
