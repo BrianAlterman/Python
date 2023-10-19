@@ -1,11 +1,17 @@
-#Exercise 1 - 
+#Exercise 1 - Write a program that asks the user to enter his or her name. The program should respond with a message that 
+#says hello to the user, using his or her name.
+
 print ("Exercise 1\n") #the '\n' skips a line after the print
 
 Name = input("Enter your name: ")
 
 print ("Hello",Name)
 
-#Exercise 2 - 
+#Exercise 2 - Write a program that asks the user to enter the width and length of a room. Once these values have been 
+#read, your program should compute and display the area of the room. The length and the width will be entered as 
+#ﬂoating-point numbers. Include units in your prompt and output message; either feet or meters, depending on which unit 
+#you are more comfortable working with.
+
 print("Exercise 2\n") #the '\n' skips a line after the print
 print("Today we will be calulating the area of a room in square feet")
 
@@ -17,7 +23,9 @@ area = length * width
 print() #another way to skip a line
 print("The area of the room is",area,"square feet")
 
-#Exercise 3 
+#Exercise 3 - Create a program that reads the length and width of a farmer’s ﬁeld from the user in feet. Display the 
+#area of the ﬁeld in acres. The formula for finding acres when you have square feet is square feet / 43,560.
+
 print("Exercise 3\n") #the '\n' skips a line after the print
 print("Today we will be calulating the area of a field in acres")
 
@@ -31,7 +39,12 @@ print("The acreage of the field is",acreage,"acres.")
 print() 
 print("But are those acres green...")
 
-#Exercise 4
+#Exercise 4 - In many jurisdictions a small deposit is added to drink containers to encourage people to recycle them. In one 
+#particular jurisdiction, drink containers holding one liter or less have a  $0.10 deposit, and drink containers holding
+#more than one liter have a $0.25 deposit.
+#Write a program that reads the number of containers of each size from the user. Your program should continue by computing 
+#and displaying the refund that will be received for returning those containers. Extra credit: format the output so that it 
+#includes a dollar sign and two digits to the right of the decimal point.
 
 #want to use the decimal object and the quantize function to return a float value with two decimal places.
 
@@ -56,7 +69,7 @@ print("You earned $",(Decimal(small_deposit).quantize(Decimal('1.00'))),"for the
 print()
 print("Good work recycling, you are help making the world a better place...")
 
-#Exercise 5 
+#Exercise 5 - Write a program that reads an integer from the user. Then your program should display a message indicating whether the integer is even or odd.
 print("Exercise 4\n") #the '\n' skips a line after the print
 print("Today we will be determining if a nuber is odd or even\n")
 
