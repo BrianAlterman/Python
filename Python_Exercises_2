@@ -1,0 +1,87 @@
+#Exercise 1 - In a particular jurisdiction, taxi fares consist of a base fare of $4.00, plus $0.25 for every
+#140 meters traveled. Write a program that gets the distance traveled (in kilometers)
+#from the user and writes the total fare to the screen.
+
+#want to use the decimal object and the quantize function to return a float value with two decimal places.
+
+from decimal import Decimal
+
+print ("Exercise 1\n") #the '\n' skips a line after the print
+
+kilometers = float(input("Please enter the distance travelled in kilometers: "))
+print() #another way to skip a line
+
+meterunits = (kilometers*1000)/140
+basefare = 4
+unitcost = meterunits * .25
+totalcost = unitcost + basefare
+
+print ("Base Fare: $",(Decimal(basefare).quantize(Decimal('1.00'))))
+print ("Meter Units:",meterunits)
+print ("Unit Cost: $",(Decimal(unitcost).quantize(Decimal('1.00'))))
+print ("Total Cost: $",(Decimal(totalcost).quantize(Decimal('1.00'))))
+
+print()
+print("We hope you enjoyed your ride, have a great day!")
+
+#Back to the basics of branching logic. In this exercise you will create a program that reads a letter 
+#of the alphabet from the user. If the user enters a, e, i, o or u then your program should display a message 
+#indicating that the entered letter is a vowel. If the user enters y then your program should display a message 
+#indicating that sometimes y is a vowel, and sometimes y is a consonant. Otherwise your program should display 
+#a message indicating that the letter is a consonant. Extra credit, display "that's not a letter!" if the user 
+#enters a non-letter.
+
+consonant = ("B","C","D","F","G","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Z")
+vowel = ("A","E","I","O","U")
+justy = ("Y")
+
+print ("Exercise 2\n")
+
+print("What-kind-of-a-letter-a-tron!")
+print()
+
+user_select = input("Enter a letter for evaluation: ")
+upper_select = user_select.upper()
+
+print()
+
+if upper_select in consonant:
+    print("The letter",upper_select,"is a consonant.")
+elif upper_select in vowel:
+    print("The letter",upper_select,"is a vowel.")
+elif upper_select in justy:
+    print("The letter",upper_select,"is a trickster and is sometimes a consonant and sometimes a vowel.")
+else:
+    print("Who are you trying to fool? That's not a letter!")
+
+#In this exercise you will create a program that computes the average of a collection of 
+#values entered by the user. The user will enter 0 as a sentinel value to indicate that no 
+#further values will be provided. Your program should display an appropriate error message 
+#if the first value entered by the user is 0.
+
+collection_values = [] #list rather than a tuple because it is mutable
+
+print ("Exercise 3\n") #the '\n' skips a line after the print
+
+datacheck = float(input("Enter a number, chose 0 to end: "))
+
+while datacheck != 0:
+    collection_values.append(datacheck)
+    datacheck = float(input("Enter a number, chose 0 to end: "))
+
+collectionavg = sum(collection_values) / len(collection_values)
+    
+print()
+print("The numbers to be averaged are:",collection_values)
+print ("The average is:",collectionavg)
+
+
+# Hints: You're going to need a loop to go through the degrees Celsius.  I would suggest a "for loop" 
+# that goes from 0 to 100 in increments of 10.  Check the syntax for the "range" function in Notebook #4.
+
+print ("Exercise 4\n") #the '\n' skips a line after the print
+
+for degree in [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]:
+    convert = (degree * 9/5)+32
+    print("Celcius",degree,"is equal to",convert,"Fahrenheit")
+   
