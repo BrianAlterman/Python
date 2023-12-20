@@ -1,0 +1,79 @@
+# The requests library will be used to connect to the API
+
+import requests
+import pandas as pd
+from pandas import json_normalize
+import seaborn as sb
+import matplotlib.pyplot as plt
+import json # built in package used to work with JSON data
+
+# Making a request to get data from the NHL. Was throwing errors due to a missing certificate so I set verify=False
+# I know this is probably not the smartest but I am confident site is trustworthy based on discussion
+
+response = requests.get("https://api-web.nhle.com/v1/standings/now", verify=False)
+data = response.text
+
+# NHL sites based on data type info can be found here:
+# https://github.com/Zmalski/NHL-API-Reference?tab=readme-ov-file#base-url
+
+# check the status of the import, codes are as follows:
+
+# 200: Everything went okay, and the result has been returned (if any).
+# 301: The server is redirecting you to a different endpoint. This can happen when a company switches domain names, or an endpoint name is changed.
+# 400: The server thinks you made a bad request. This can happen when you don’t send along the right data, among other things.
+# 401: The server thinks you’re not authenticated. Many APIs require login ccredentials, so this happens when you don’t send the right credentials to access an API.
+# 403: The resource you’re trying to access is forbidden: you don’t have the right perlessons to see it.
+# 404: The resource you tried to access wasn’t found on the server.
+# 503: The server is not ready to handle the request.
+
+# print(response.status_code)
+# print(response.reason)
+# print(response.text)
+
+# print(response.headers) # headers of the response
+# print() # blank line for separation
+# print(response.request.headers) # headers of the request
+
+# Printing the data, just want to see what it looks like
+
+# print(response.json())
+
+# reference: https://www.dataquest.io/blog/python-api-tutorial/
+# JSON (JavaScript Object Notation) is the language of APIs. JSON is a way to encode 
+# data structures that ensures that they are easily readable by machines. JSON is the 
+# primary format in which data is passed back and forth to APIs, and most API servers 
+# will send their responses in JSON format.
+
+def jprint(obj):
+    # create a formatted string of the Python JSON object
+    text = json.dumps(obj, sort_keys=True, indent=4)
+    # print(text)
+
+# jprint(response.json()) 
+
+# jprint(response.json()["standings"])
+
+# This shows the data in a much more readable form
+
+data_l = json.loads(data)
+data_n = pd.json_normalize(data_l,["standings"])
+# print(data_n)
+
+sb.scatterplot(data_n, x="points", y="goalDifferential", hue="conferenceName") 
+
+font1 = {'family':'serif','color':'darkblue','size':20}
+font2 = {'family':'serif','color':'blue','size':15}
+
+plt.title('Points/Goal Differential', fontdict = font1)
+# Set x-axis label
+plt.xlabel('Points', fontdict = font2)
+# Set y-axis label
+plt.ylabel('Goal Differential', fontdict = font2)
+plt.legend(title='Conference', loc='upper left')
+
+def label_point(x, y, val, ax):
+    a = pd.concat({'x': x, 'y': y, 'val': val}, axis=1)
+    for i, point in a.iterrows():
+        ax.text(point['x']+.02, point['y'], str(point['val']))
+
+label_point(data_n.points, data_n.goalDifferential, data_n['teamAbbrev.default'], plt.gca()) 
