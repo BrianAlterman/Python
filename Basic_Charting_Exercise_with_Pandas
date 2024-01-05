@@ -1,0 +1,32 @@
+#import (at least) the pandas and seaborn libraries using their usual alias "as"
+import pandas as pd
+import seaborn as sb
+
+#create a dataframe from the seaborn dataset called "mpg"
+sb.get_dataset_names()
+
+df = sb.load_dataset ('mpg')
+
+#take a look at the first 25 rows
+df.head(25)
+
+# We learned about a couple of charts that are good for looking
+# at categorical data, like "origin", which is the location of manufacture
+# for the cars in the mpg dataset.
+
+# Draw one kind of chart that's good for looking at a single categorical variable, "origin"
+sb.countplot(df, x="origin")
+
+# And now, draw another basic chart for categorical data, and use it to graph "origin"
+sb.histplot(df, x="origin")
+
+# What chart would you use to look at the distribution of a continuous variable like "weight"?
+# Draw it here
+sb.boxplot(df, x="weight")
+
+# And finally, how would you draw a plot that examined the relationship between two categorical
+# variables like "horsepower" and "weight"?  Generally, weight would be the independent variable,
+# as the weight of a car normally determines the needed horspower, not the other way around.
+# Using this assumption, draw an appropriate plot here.
+
+sb.scatterplot(df, x="weight", y="horsepower", hue="origin") #Just trying different things, I know you didn't ask for origin
