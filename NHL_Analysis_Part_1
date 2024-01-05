@@ -77,3 +77,22 @@ def label_point(x, y, val, ax):
         ax.text(point['x']+.02, point['y'], str(point['val']))
 
 label_point(data_n.points, data_n.goalDifferential, data_n['teamAbbrev.default'], plt.gca()) 
+
+g = sb.lmplot(
+    x="points", 
+    y="goalDifferential", 
+    hue="conferenceName", 
+    data=data_n,  
+    legend=True
+)
+
+plt.title('Points/Goal Differential', fontdict = font1)
+# Set x-axis label
+plt.xlabel('Points', fontdict = font2)
+# Set y-axis label
+plt.ylabel('Goal Differential', fontdict = font2)
+
+label_point(data_n.points, data_n.goalDifferential, data_n['teamAbbrev.default'], plt.gca()) 
+
+# plt.legend(title='Confernece', loc='upper left', labels=['Western', 'Eastern'])
+plt.show(g)
